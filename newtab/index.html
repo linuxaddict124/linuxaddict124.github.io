@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Tab Page for Linux Users</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>New Tab Page for Linux Users</h1>
+    <nav>
+      <a href="https://www.linux.org" target="_blank">Linux.org</a>
+      <a href="https://www.duckduckgo.com" target="_blank">DuckDuckGo</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <form action="https://www.duckduckgo.com/" method="GET" target="_blank" class="search-form">
+        <input type="text" name="q" placeholder="DuckDuckGo Search" required />
+        <button type="submit">Search</button>
+      </form>
+      <h2>Launchpad</h2>
+      <h3>Productivity</h3>
+      <button onclick="window.open('https://calendar.proton.me', '_blank')">Proton Calendar</button>
+      <button onclick="window.open('https://mail.proton.me', '_blank')">Proton Mail</button>
+      <button onclick="window.open('https://drive.proton.me', '_blank')">Proton Drive</button>
+      <button onclick="window.open('https://www.canva.com', '_blank')">Canva</button>
+      <button onclick="window.open('https://www.github.com', '_blank')">GitHub</button>
+      <h3>Entertainment</h3>
+      <button onclick="window.open('https://www.youtube.com', '_blank')">YouTube</button>
+      <button onclick="window.open('https://www.peertube.tv', '_blank')">PeerTube.TV</button>
+      <button onclick="window.open('https://www.netflix.com', '_blank')">Netflix</button>
+      <h3>Microblogging</h3>
+      <button onclick="window.open('https://www.x.com', '_blank')">Twitter/X</button>
+      <button onclick="window.open('https://www.mastodon.social', '_blank')">Mastodon</button>
+      <h3>News Platforms</h3>
+      <button onclick="window.open('https://www.cnn.com', '_blank')">CNN</button>
+      <button onclick="window.open('https://abcnews.go.com', '_blank')">ABC News</button>
+      <button onclick="window.open('https://www.bbc.com', '_blank')">BBC</button>
+      <h2>Browserfetch</h2>
+      <script>
+  function getBrowserInfo() {
+    const info = {
+        Browser: navigator.userAgent,
+        Platform: navigator.platform,
+        Language: navigator.language,
+        Status: navigator.onLine ? "Online" : "Offline",
+        Screen: `${screen.width}x${screen.height}`,
+        ColorDepth: `${screen.colorDepth}-bit`,
+        Timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        Memory: navigator.deviceMemory ? `${navigator.deviceMemory} GB` : "Unknown",
+        Timestamp: new Date().toLocaleString()
+      };
+
+      const output = Object.entries(info)
+        .map(([key, value]) => `${key}: ${value}`)
+        .join('\n');
+
+        document.getElementById("neofetch").textContent = output;
+      }
+
+      window.onload = getBrowserInfo;
+    </script>
+    <pre id="neofetch">Loading system info...</pre>
+    </section>
+  </main>
+
+  <footer>
+    <p>🖥️ Talk is cheap. Show me the code. -Linus Torvalds</p>
+  </footer>
+</body>
+</html>
